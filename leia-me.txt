@@ -1,0 +1,13 @@
+Middle Market
+
+Este aplicativo Web foi desenvolvido em HTML5 com utilização da linguagem JavaScript para o trabalho de Oficina Integrada do Colégio Estadual José Leite Lopes / Núcleo Avançado em Educação.
+
+Equipe:
+Daniela Gonçalves (daniegetirana@gmail.com)
+Gabriel de Souza (cladangab@gmail.com)
+Luiz Roberto Sirica (almassirica@gmail.com)
+
+Turma: 1003 - Grupo 4
+
+Divirta-se com este Point and Click!
+Basta clicar no arquivo "MiddleMarket.html" para começar!

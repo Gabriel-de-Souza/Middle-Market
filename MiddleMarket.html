@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Middle Market</title>
+	<style type="text/css">
+		body { cursor:none; }
+	</style>
+	<body>
+		
+		<script src="framework/form.js"></script>
+		<script src="framework/efects.js"></script>
+		<script src="framework/input.js"></script>
+		<script src="framework/gameStructure.js"></script>
+		<script src="framework/time.js"></script>
+		<script src="framework/video.js"></script>
+		<script src="framework/mouseInput.js"></script>
+		<script src="framework/button.js"></script>
+		<script src="framework/collSimple.js"></script>
+		
+		<script src="gameObjects/wave.js"></script>
+		<script src="gameObjects/itens.js"></script>
+		<script src="gameObjects/call.js"></script>
+		<script src="gameObjects/person.js"></script>
+		<script src="gameObjects/ladrao.js"></script>
+		<script src="gameObjects/espada.js"></script>
+		
+		<script src="framework/loading.js"></script>
+		
+		<script src="scenes/backgrounds.js"></script>
+		<script src="scenes/game.js"></script>
+		<script src="scenes/menu.js"></script>
+		<script src="scenes/gameOver.js"></script>
+		<script src="scenes/win.js"></script>
+		<script>
+			// Ligando o canvas ao código javascript
+			//document.body.style.background = "#28ABE3";
+			
+			var video = document.createElement('video');
+			video.src = 'video.mp4';
+			
+			//screenMain = new Staqe(0, 0, 0, 0, 800, 600, "red", "white");
+			//screenMain = crateMaxStage(t, b, l, r, bg, c, xR, yR, xB, yB);
+			screenMain = crateMaxStage(0, 0, 0, 0, "red", "white", 4, 3, 50);
+			
+			var input = new InputHandeler();
+				
+			screenMain.addLayer();
+				
+			var ctx = screenMain.layer[0].ctx;
+			var canvas = screenMain.layer[0].canvas;
+			
+			xRealResolution = canvas.width;
+			yRealResolution = canvas.height;
+			xResolution = 1024;
+			yResolution = 768;
+			
+			var canvas_bound = canvas.getBoundingClientRect();
+			
+			boundX = canvas_bound.left;
+			boundY = canvas_bound.top;
+
+			//var inputMouse = new MouseInput();
+			
+			var score = 0;
+			
+			var highScore = localStorage.getItem("highScore");
+				
+			
+			
+			
+//-------------------------------------------------------------------------------------
+		var blackScreen = new GameObject.Class();
+		blackScreen.size.w = xResolution;
+		blackScreen.size.h = yResolution;
+		blackScreen.position.x = 0;
+		blackScreen.position.y = 0;
+		blackScreen.opacity = 0;
+		blackScreen.layer = screenMain.layer[0];
+		blackScreen.color = '255,255,255';
+		
+		blackScreen.visibility = true;
+		
+		blackScreen.update = function(){
+			
+		};
+		
+		blackScreen.draw = function(){
+			if(this.visibility){
+				this.layer.ctx.save();
+				this.layer.ctx.globalAlpha = this.opacity;
+				drawRect(this.position.x, this.position.y, this.size.w, this.size.h, this.renderColor(), screenMain.layer[0]);
+				this.layer.ctx.restore();
+			}
+		};
+		
+		//-------------------------------------------------------------------------------------
+			
+			
+			function update(){
+				scene.update();
+			}
+				
+			function draw(){
+				screenMain.layer[0].ctx.clearRect(0, 0, screenMain.layer[0].canvas.width, screenMain.layer[0].canvas.height);
+				screenMain.layer[0].ctx.save();
+				screenMain.layer[0].ctx.scale(xRealResolution/xResolution, yRealResolution/yResolution);
+				scene.draw();
+				blackScreen.draw();
+				screenMain.layer[0].ctx.restore();
+			}
+				
+			function loop(){
+				update();
+				draw();
+				setTimeout(loop, 30);
+			}
+			
+			Next();
+			
+			loop();
+			
+			
+		</script>
+	</body>
+</html>

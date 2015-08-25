@@ -1,0 +1,9 @@
+Exercício de reforço sobre objetos
+
+Montar uma cena no qual existam 3 elementos:
+
+Um quadrado que fica a esquerda com propriedades de posição, tamanho e cor verde e uma função que é de troca de cor para azul ao apertar a tecla "C" do teclado e volta para verde se a tecla for novamente pressionada;
+
+Um retangulo que fica ao centro com propriedades de posição, tamanho, cor vermelha e uma função que altere o tamanho do retangulo apertando seta para direita para aumentar ou seta para esquerda para diminuir.
+
+Um circulo que fica a direita com propriedades de posição, tamanho, cor amarela, velocidade no eixo vertical e fique se atualizando no eixo colidindo com o canto superior e inferior da tela.
